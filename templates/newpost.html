@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form method='post'>
+    <table>
+    <tbody>
+    <li>
+    <label>
+        Blog title:
+        <input type="text" name='title' /> {% if name_error == true %}Please enter a title{% endif %}
+    </label>
+    </li>
+    <li>
+    <label>
+        New Post:
+        <input type="text" name='post' /> {% if content_error == true %}Please fill in the body{% endif %}
+    </label>
+    </li>
+    <input type="submit" value='Add Post' />
+    </tbody>
+    </table>
+</form>
+
+{% endblock %}
