@@ -4,20 +4,27 @@
 
 {% if post_id %}
 <ul>
-    <li>
-        <h3>{{blog_post.blog}}</h3>
-        <p>{{blog_post.body}}</p>
-    </li>
+    <h3>{{blog_post.blog}}</h3>
+    <p>{{blog_post.body}}</p>
+    <a href='./blog?user={{blog_post.owner_id}}'><p>Written by: {{blog_post.owner.username}}</p></a>
 </ul>
-{% else %}
+{% endif %}
+
+{% if user_id %}
 <ul>
-    {% for blog in blogs %}
-    <li>
-        <a href='./blog?id={{blog.id}}'><h3>{{blog.blog}}</h3></a>
-        <p>{{blog.body}}</p>
-    </li>
+    {% for blog in blog_post %}
+    <h3>{{blog.blog}}</h3>
+    <p>{{blog.body}}</p>
     {% endfor %}
 </ul>
 {% endif %}
+
+<ul>
+    {% for blog in blogs %}
+    <a href='./blog?id={{blog.id}}'><h3>{{blog.blog}}</h3></a>
+    <p>{{blog.body}}</p>
+    <a href='./blog?user={{blog.owner_id}}'><p>Written by: {{blog.owner.username}}</p></a>
+    {% endfor %}
+</ul>
 
 {% endblock %}

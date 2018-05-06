@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Login</h2>
+<form method="post">
+    <table>
+    <tbody>
+    <li>    
+    <label>Username<input type="text" name="username"/>{% if username_error == true %}Username is not valid{% endif %}{% if blank_username_error == true %}Please enter a username{% endif %}</label>
+    </li>
+    <li>
+    <label>Password<input type="password" name="password"/>{% if password_error == true %}Password is not valid{% endif %}{% if blank_password_error == true %}Please enter a password{% endif %}</label>
+    </li>
+    <input type="submit" value="Login"/>
+    </tbody>
+    </table>
+</form>
+<a href="/signup">Create Account</a>
+
+{% endblock %}

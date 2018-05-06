@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form method="post">
+    <table>
+    <tbody>
+    <li>    
+    <label>Username<input type="text" name="username"/>{% if blank_username_error == true %}Please enter a username{% endif %}{% if username_error == true %}Username is not valid{% endif %}{% if username_exists_error == true %}That username is already taken!{% endif %}</label>
+    </li>
+    <li>
+    <label>Password<input type="password" name="password"/>{% if blank_password_error == true %}Please enter a password{% endif %}{% if password_error == true %}Password is not valid{% endif %}</label>
+    </li>
+    <li>
+    <label>Confirm Password<input type="password" name="v_password"/>{% if v_password_error == true %}Passwords do not match{% endif %}{% if blank_v_password_error == true %}Please validate your password{% endif %}</label>
+    </li>
+    <input type="submit" value="Login"/>
+    </tbody>
+    </table>
+</form>
+
+{% endblock %}
